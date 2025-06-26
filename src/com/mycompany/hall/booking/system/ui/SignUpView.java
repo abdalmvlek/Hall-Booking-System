@@ -44,7 +44,7 @@ public class SignUpView extends JFrame {
         formPanel.setBackground(Color.WHITE);
 
         // Name
-        formPanel.add(createLabel("الاسم كامل"));
+        formPanel.add(createLabel("الاسم الكامل"));
         nameField = createTextField();
         formPanel.add(nameField);
         formPanel.add(Box.createRigidArea(new Dimension(0, 15)));
