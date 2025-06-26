@@ -1,6 +1,4 @@
 // DatabaseManager.java
-// Updated to support fetching room names with bookings, deleting bookings,
-// and fetching all bookings for reports.
 package com.mycompany.hall.booking.system;
 
 import java.sql.*;
@@ -196,9 +194,6 @@ public class DatabaseManager {
         }
     }
 
-    /**
-     * UPDATED to fetch the room name using a JOIN for a more user-friendly display.
-     */
     public static ArrayList<Booking> getBookingsByUser(int userId) {
         Connection conn = getConnection();
         ArrayList<Booking> bookings = new ArrayList<>();
@@ -256,7 +251,7 @@ public class DatabaseManager {
     }
 
     /**
-     * NEW METHOD: Gets all bookings, used for admin reporting.
+     * Gets all bookings, used for admin reporting.
      */
     public static ArrayList<Booking> getAllBookings() {
         Connection conn = getConnection();
@@ -298,7 +293,7 @@ public class DatabaseManager {
     }
     
     /**
-     * NEW METHOD: Deletes a booking, used for the "Cancel Booking" feature.
+     * Deletes a booking, used for the "Cancel Booking" feature.
      */
     public static boolean deleteBooking(int bookingId) {
         Connection conn = getConnection();

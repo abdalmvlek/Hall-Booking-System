@@ -1,5 +1,4 @@
 // UserDashboard.java
-// Updated to show more booking details and allow users to cancel their bookings.
 package com.mycompany.hall.booking.system.ui;
 
 import com.mycompany.hall.booking.system.Booking;
@@ -31,7 +30,7 @@ public class UserDashboard extends JFrame {
         setSize(850, 600);
         setLocationRelativeTo(null);
         
-        // Add a listener to stop the background thread when the window is closed
+        // listener to stop the background thread when the window is closed
         addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
@@ -58,7 +57,7 @@ public class UserDashboard extends JFrame {
     }
     
     /**
-    * This method starts a background thread that refreshes the list
+    * method that starts a background thread that refreshes the list
     * of pending bookings without freezing the user interface.
     */
     private void startAutoRefresh() {
@@ -67,7 +66,6 @@ public class UserDashboard extends JFrame {
                 try {
                     Thread.sleep(30000); // Wait for 30 seconds
                     
-                    // GUI updates must be done on the Event Dispatch Thread (EDT)
                     SwingUtilities.invokeLater(() -> {
                         System.out.println("Auto-refreshing pending bookings...");
                         refreshBookingsTable();
@@ -219,7 +217,7 @@ public class UserDashboard extends JFrame {
                 newBooking.setDate(java.sql.Date.valueOf(dateField.getText()));
                 newBooking.setStartTime(java.sql.Time.valueOf(startTimeField.getText()));
                 newBooking.setEndTime(java.sql.Time.valueOf(endTimeField.getText()));
-                newBooking.setStatus("pending"); // All new bookings are pending approval
+                newBooking.setStatus("pending"); // All new bookings are pending
 
                 if (DatabaseManager.createBooking(newBooking)) {
                     JOptionPane.showMessageDialog(this, "تم إرسال طلب الحجز بنجاح وهو الآن قيد الانتظار للموافقة.", "نجاح", JOptionPane.INFORMATION_MESSAGE);
@@ -242,9 +240,7 @@ public class UserDashboard extends JFrame {
         }
     }
 
-    /**
-     * UPDATED to populate the table with the new, more descriptive data.
-     */
+
     private void refreshBookingsTable() {
         DefaultTableModel model = (DefaultTableModel) bookingsTable.getModel();
         model.setRowCount(0);
@@ -252,8 +248,8 @@ public class UserDashboard extends JFrame {
         for (Booking booking : bookings) {
             model.addRow(new Object[]{
                 booking.getId(), 
-                booking.getRoomName(),  // Show room name
-                booking.getPurpose(),   // Show booking purpose
+                booking.getRoomName(), 
+                booking.getPurpose(),   
                 booking.getDate(), 
                 booking.getStatus()
             });

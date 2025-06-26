@@ -1,6 +1,3 @@
-// AdminDashboard.java
-// Updated to include an "All Bookings" view, report exporting (I/O), 
-// and an auto-refresh feature (Multithreading).
 package com.mycompany.hall.booking.system.ui;
 
 import com.mycompany.hall.booking.system.Booking;
@@ -30,7 +27,7 @@ public class AdminDashboard extends JFrame {
         setSize(900, 700);
         setLocationRelativeTo(null);
 
-        // Add a listener to stop the background thread when the window is closed
+        // listener to stop the background thread when the window is closed
         addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
@@ -193,7 +190,7 @@ public class AdminDashboard extends JFrame {
         if (selectedRow >= 0 && selectedRow < pendingBookingsTable.getRowCount()) {
             pendingBookingsTable.setRowSelectionInterval(selectedRow, selectedRow);
         }
-        // Also refresh the "All Bookings" view as statuses might change.
+        // refresh the "All Bookings" view as statuses might change.
         refreshAllBookingsTable(); 
     }
     
@@ -218,7 +215,7 @@ public class AdminDashboard extends JFrame {
 
     
     /**
-     * This method saves the content of the "All Bookings" table to a text file.
+     * method that saves the content of the "All Bookings" table to a text file.
      */
     private void exportReport() {
         JFileChooser fileChooser = new JFileChooser();

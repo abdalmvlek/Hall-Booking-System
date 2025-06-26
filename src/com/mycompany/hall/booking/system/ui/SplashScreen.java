@@ -34,8 +34,7 @@ public class SplashScreen extends JFrame {
         titleLabel.setForeground(Color.WHITE);
         panel.add(titleLabel, BorderLayout.NORTH);
 
-        // Icon/Image (Optional)
-        // You can add an icon here if you have one. For now, a simple text.
+        // Icon/Image
         JLabel iconLabel = new JLabel("🚀", SwingConstants.CENTER);
         iconLabel.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 100));
         panel.add(iconLabel, BorderLayout.CENTER);

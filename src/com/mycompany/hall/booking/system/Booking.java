@@ -1,6 +1,4 @@
-
 // Booking.java
-// Updated to include a field for the room's name for better display.
 package com.mycompany.hall.booking.system;
 
 import java.sql.Date;

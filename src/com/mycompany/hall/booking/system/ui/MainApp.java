@@ -1,6 +1,4 @@
 // MainApp.java
-// This is the main entry point of the application.
-// It starts with a splash screen and then shows the login view.
 package com.mycompany.hall.booking.system.ui;
 
 import java.util.Locale;
